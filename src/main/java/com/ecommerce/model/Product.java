@@ -7,6 +7,8 @@ import java.math.BigDecimal;
  * Created by Alx on 8/9/2016.
  */
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "type")
 @Table(name = "product")
 public class Product {
 
@@ -14,9 +16,6 @@ public class Product {
     @GeneratedValue
     @Column(name = "id")
     int productID;
-
-    @Column(name = "type")
-    String type;
 
     @Column(name = "name")
     String name;
@@ -38,7 +37,9 @@ public class Product {
         this.productID = productID;
     }
 
-    public String getName() {return name;}
+    public String getName() {
+        return name;
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -68,7 +69,5 @@ public class Product {
         this.description = description;
     }
 
-    public String getType() {return type;}
 
-    public void setType(String type) {this.type = type;}
 }

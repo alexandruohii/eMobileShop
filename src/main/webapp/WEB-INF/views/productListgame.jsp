@@ -42,11 +42,11 @@
                             <th></th>
                         </tr>
                         </thead>
-                        <c:forEach items="${products}" var="product">
+                        <c:forEach items="${gameProducts}" var="gameProduct">
                             <tr>
                                 <td><img src="#" alt="image"/></td>
-                                <td>${product.name}</td>
-                               <%-- <td>${product.type}</td>--%>
+                                <td>${gameProduct.name}</td>
+                                    <%-- <td>${product.type}</td>--%>
                                 <td>${product.price}</td>
                                 <td><a class="btn btn-default"
                                        href="<spring:url value="/productList/viewProduct/${product.productID}"/>" role="button">Info</a>
@@ -58,9 +58,9 @@
 
 
                 </div>
-</div>
+            </div>
 
-</div>
+        </div>
 
 
-        <%@include file="/WEB-INF/views/fragments/footer.jsp" %>
+            <%@include file="/WEB-INF/views/fragments/footer.jsp" %>
