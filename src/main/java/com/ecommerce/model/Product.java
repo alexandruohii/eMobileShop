@@ -7,9 +7,14 @@ import java.math.BigDecimal;
  * Created by Alx on 8/9/2016.
  */
 @Entity
+@Table(name = "product")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type")
-@Table(name = "product")
+
+
+@AttributeOverride(name = "type",
+        column = @Column(name="type", nullable = false, length = 8,
+                insertable = false, updatable = false))
 public class Product {
 
     @Id
@@ -20,14 +25,19 @@ public class Product {
     @Column(name = "name")
     String name;
 
+    @Column(name="type", nullable=false, length=8)
+    String type;
+
     @Column(name = "price")
     BigDecimal price;
+
 
     @Column(name = "brand")
     String brand;
 
     @Column(name = "description")
     String description;
+
 
     public int getProductID() {
         return productID;
@@ -69,5 +79,11 @@ public class Product {
         this.description = description;
     }
 
+    public String getType() {
+        return type;
+    }
 
+    public void setType(String type) {
+        this.type = type;
+    }
 }

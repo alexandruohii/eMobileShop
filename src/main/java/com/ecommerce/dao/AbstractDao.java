@@ -1,10 +1,9 @@
 package com.ecommerce.dao;
 
+import com.ecommerce.dao.interfaces.Dao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
@@ -37,7 +36,7 @@ public class AbstractDao<T, ID extends Serializable> implements Dao<T, ID> {
     @SuppressWarnings("unchecked")
     @Override
     public T findById(ID id) {
-        return (T) getSession().load(this.getPersistentClass(), id);
+        return (T) getSession().get(this.getPersistentClass(), id);
     }
 
     @SuppressWarnings("unchecked")
@@ -49,19 +48,19 @@ public class AbstractDao<T, ID extends Serializable> implements Dao<T, ID> {
 
     @Override
     public void save(T entity) {
-        getSessionFactory().getCurrentSession().saveOrUpdate(entity);
+        getSession().saveOrUpdate(entity);
     }
 
     @Override
     public void delete(T entity) {
-        this.getSession().delete(entity);
+        getSession().delete(entity);
     }
 
 
     protected Session getSession() {
-        if (this.session == null) {
-            this.session = sessionFactory.getCurrentSession();
-        }
+
+            session = sessionFactory.getCurrentSession();
+
         return this.session;
     }
 

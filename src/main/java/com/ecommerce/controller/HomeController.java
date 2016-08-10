@@ -1,8 +1,7 @@
 package com.ecommerce.controller;
 
-import com.ecommerce.model.Game;
+import com.ecommerce.dao.ProductDaoo;
 import com.ecommerce.model.Product;
-import com.ecommerce.service.GameService;
 import com.ecommerce.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,8 +19,7 @@ import java.util.List;
 @SessionScope
 public class HomeController {
 
-    /*@Autowired
-    ProductDao productDao;*/
+
     @Autowired
     private ProductService productService;
 
@@ -30,26 +28,33 @@ public class HomeController {
         return "home";
     }
 
-    /*@RequestMapping("/productListgame")
-    public String getProducts(Model model) {
-        List<Game> games = gameService.list();
-        model.addAttribute("gameProducts", games);
-        return "productListgame";
-    }*/
 
-    @RequestMapping("/productList")
-    public String getProducts( Model model) {
-        List< ? extends Product> products = productService.listGames();
+    @RequestMapping("/productList/{type}")
+    public String getProducts(@PathVariable String type, Model model) {
+        List<String> listTypes = productService.getlistTypes();
+        List<Product> products = productService.listProduct(type);
         model.addAttribute("products", products);
+        model.addAttribute("type", type);
+        model.addAttribute("listTypes", listTypes);
         return "productList";
     }
 
-    /*@RequestMapping("/productList/viewProduct/{productId}")
-    public String viewProduct(@PathVariable int productId, Model model) {
-        Product product = productService.getProductById(productId);
-        model.addAttribute(product);
-        return "viewProduct";
+    /*@RequestMapping("/productList")
+    public String getProduc( Model model) {
+
+        List<Product> products = productDaoo.getProducts();
+        model.addAttribute("products", products);
+
+        return "productList";
     }*/
+
+
+    @RequestMapping("/productList/viewProduct/{productId}")
+    public String viewProduct(@PathVariable int productId, Model model) {
+        Product product = productService.findById(productId);
+        model.addAttribute("product", product);
+        return "viewProduct";
+    }
 
 
 }

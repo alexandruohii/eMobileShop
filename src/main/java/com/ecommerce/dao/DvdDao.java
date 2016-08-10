@@ -1,6 +1,6 @@
 package com.ecommerce.dao;
 
-import com.ecommerce.model.Dvds;
+import com.ecommerce.model.DVD;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public class DvdDao extends AbstractDao<Dvds, Integer> {
+public class DvdDao extends AbstractDao<DVD, Integer> {
 
 
 }

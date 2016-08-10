@@ -1,4 +1,4 @@
-package com.ecommerce.dao;
+package com.ecommerce.dao.interfaces;
 
 import java.io.Serializable;
 import java.util.List;

@@ -12,7 +12,6 @@ import javax.persistence.Entity;
 public class Game extends Product {
 
 
-
     @Column(name = "gamedevice")
     private String gameDevice;
 

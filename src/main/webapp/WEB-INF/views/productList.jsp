@@ -24,29 +24,27 @@
 
                 <div class="col-md-2">
                     <h4 style="color: #005EB8">Product Type</h4>
-                    <a class="btn btn-default btn-sm" href="<spring:url value="/productList/${'Games'}"/>" role="button">-Games    &raquo;</a>
-                    <a class="btn btn-default btn-sm" href="<spring:url value="/productList/${'Software'}"/>" role="button">-Software &raquo;</a>
-                    <a class="btn btn-default btn-sm" href="<spring:url value="/productList/${'Dvd'}"/>" role="button">-DVD's     &raquo;</a>
-                    <a class="btn btn-default btn-sm" href="<spring:url value="/productList/"/>" role="button">All Products&raquo;</a>
-
+                    <c:forEach items="${listTypes}" var="type">
+                   <div> <a class="btn btn-default btn-sm" href="<spring:url value="/productList/${type}"/>" role="button">${type}    &raquo;</a></div>
+                    </c:forEach>
 
                 </div>
                 <div class="col-md-10">
                     <table class="table table-stripped table-hover">
                         <thead>
-                        <tr class="bg-success">
+
                             <th>Photo Thumb</th>
                             <th>Product Name</th>
                             <th>Type</th>
                             <th>Price</th>
                             <th></th>
-                        </tr>
+
                         </thead>
                         <c:forEach items="${products}" var="product">
                             <tr>
                                 <td><img src="#" alt="image"/></td>
                                 <td>${product.name}</td>
-                               <%-- <td>${product.type}</td>--%>
+                                 <td>${type}</td>
                                 <td>${product.price}</td>
                                 <td><a class="btn btn-default"
                                        href="<spring:url value="/productList/viewProduct/${product.productID}"/>" role="button">Info</a>
