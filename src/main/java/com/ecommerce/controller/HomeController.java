@@ -39,14 +39,6 @@ public class HomeController {
         return "productList";
     }
 
-    /*@RequestMapping("/productList")
-    public String getProduc( Model model) {
-
-        List<Product> products = productDaoo.getProducts();
-        model.addAttribute("products", products);
-
-        return "productList";
-    }*/
 
 
     @RequestMapping("/productList/viewProduct/{productId}")
@@ -56,5 +48,9 @@ public class HomeController {
         return "viewProduct";
     }
 
+@RequestMapping("/admin")
+    public String adminPage(){
+    return "admin";
+}
 
 }
