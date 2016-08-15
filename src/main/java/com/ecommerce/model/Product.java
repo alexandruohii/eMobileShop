@@ -8,13 +8,7 @@ import java.math.BigDecimal;
  */
 @Entity
 @Table(name = "product")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "type")
 
-
-@AttributeOverride(name = "type",
-        column = @Column(name="type", nullable = false, length = 8,
-                insertable = false, updatable = false))
 public class Product {
 
     @Id
@@ -22,22 +16,17 @@ public class Product {
     @Column(name = "id")
     int productID;
 
-    @Column(name = "name")
+    String phoneType;
     String name;
-
-    @Column(name="type", nullable=false, length=8)
-    String type;
-
-    @Column(name = "price")
     BigDecimal price;
-
-
-    @Column(name = "brand")
     String brand;
-
-    @Column(name = "description")
     String description;
-
+    String slimSlots;
+    String touchscreen;
+    String color;
+    String simType;
+    String otherOptions;
+    String phoneLink;
 
     public int getProductID() {
         return productID;
@@ -45,6 +34,14 @@ public class Product {
 
     public void setProductID(int productID) {
         this.productID = productID;
+    }
+
+    public String getPhoneType() {
+        return phoneType;
+    }
+
+    public void setPhoneType(String phoneType) {
+        this.phoneType = phoneType;
     }
 
     public String getName() {
@@ -79,11 +76,51 @@ public class Product {
         this.description = description;
     }
 
-    public String getType() {
-        return type;
+    public String getSlimSlots() {
+        return slimSlots;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setSlimSlots(String slimSlots) {
+        this.slimSlots = slimSlots;
+    }
+
+    public String getTouchscreen() {
+        return touchscreen;
+    }
+
+    public void setTouchscreen(String touchscreen) {
+        this.touchscreen = touchscreen;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getSimType() {
+        return simType;
+    }
+
+    public void setSimType(String simType) {
+        this.simType = simType;
+    }
+
+    public String getOtherOptions() {
+        return otherOptions;
+    }
+
+    public void setOtherOptions(String otherOptions) {
+        this.otherOptions = otherOptions;
+    }
+
+    public String getPhoneLink() {
+        return phoneLink;
+    }
+
+    public void setPhoneLink(String phoneLink) {
+        this.phoneLink = phoneLink;
     }
 }

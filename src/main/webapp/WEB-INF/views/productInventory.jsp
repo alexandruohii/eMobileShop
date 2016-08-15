@@ -15,22 +15,21 @@
 
         <div class="page-header">
 
-            <h1>Product Inventory</h1>
-            <p class="lead">This is the product inventory!</p>
+
+            <p class="lead">Here you can insert, delete or update products!</p>
+            <a class="btn btn-default" href="<spring:url value="/admin/productInventory/all"/>" role="button">For all products, click here!</a>
+            <a class="btn btn-default" href="<spring:url value="/admin/productInventory/SmartPhone"/>" role="button">For all SmartPhones, click here!</a>
+            <a class="btn btn-default" href="<spring:url value="/admin/productInventory/RegularPhone"/>" role="button">For all Regular Phones, click here!</a>
         </div>
 
         <div class="container"><div class="jumbotron">
             <div class="row">
 
-                <div class="col-md-2">
-                    <h4 style="color: #005EB8">Product Type</h4>
-                    <c:forEach items="${listTypes}" var="type">
-                        <div> <a class="btn btn-default btn-sm" href="<spring:url value="/productList/${type}"/>" role="button">${type}    &raquo;</a></div>
-                    </c:forEach>
 
-                </div>
-                <div class="col-md-10">
-                    <table class="table table-stripped table-hover">
+                <div class="col-md-12">
+                    <a class="btn btn-primary"
+                       href="<spring:url value="/admin/addProduct"/>" role="button">Add Product</a>
+                    <table class="table table-stripped " >
                         <thead>
 
                         <th>Photo Thumb</th>
@@ -42,13 +41,18 @@
                         </thead>
                         <c:forEach items="${products}" var="product">
                             <tr>
-                                <td><img src="#" alt="image"/></td>
-                                <td>${product.name}</td>
-                                <td>${type}</td>
+                                <td width="150px"><a href="default.asp"><img src="<c:url value="/resources/images/${product.productID}.jpg" />" alt="image" style="width:90%"/></a></td>
+                                <td width="400px" >${product.name}</td>
+                                <td>${product.phoneType}</td>
                                 <td>${product.price}</td>
                                 <td><a class="btn btn-default"
-                                       href="<spring:url value="/productList/viewProduct/${product.productID}"/>" role="button">Info</a>
+                                       href="<spring:url value="/productList/viewProduct/${product.productID}"/>" role="button">Info product</a></br>
+                                    <a class="btn btn-warning"
+                                       href="<spring:url value="/admin/editProduct/${product.productID}"/>" role="button">Edit product</a></br>
+                                    <a class="btn btn-danger"
+                                       href="<spring:url value="/admin/removeProduct/${product.productID}"/>" role="button">Del. product</a>
                                 </td>
+
 
                             </tr>
                         </c:forEach>

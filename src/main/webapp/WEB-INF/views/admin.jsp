@@ -20,7 +20,7 @@
 
 <h3>
 
-    <a href="<c:url value="/admin/productInventory"/>">Product Inventory</a>
+    <a href="<c:url value="/admin/productInventory/all"/>">Product Inventory</a>
 
 </h3>
 
