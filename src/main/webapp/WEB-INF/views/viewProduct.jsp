@@ -32,9 +32,9 @@
                         <br>
                         <br>
                         <a class="btn btn-default"
-                           href="<spring:url value="/productList/all"/>" role="button"><< Back</a>
+                           href="<spring:url value="/product/productList/all"/>" role="button"><< Back</a>
                         <a class="btn btn-primary""
-                           href="<spring:url value="/admin/editProduct/${product.productID}"/>" role="button">Add To Cart</a>
+                           href="<spring:url value="/cart/add/${product.productID}"/>" role="button">Add To Cart</a>
                         <a class="btn btn-warning"
                            href="<spring:url value="/admin/removeProduct/${product.productID}"/>" role="button">View Cart >></a>
 
@@ -49,7 +49,7 @@
                     <h4><strong>Specifications</strong></h4>
                     <br>
                     <p>CHARACTERISTICS</p>
-                    <table class="table table-striped table-hover">
+                    <table class="table  table-hover" style="font-size: 14px; text-indent: 10px">
                         <tr>
                             <td style="width: 300px">Phone Type</td>
                             <td>${product.phoneType}</td>
@@ -60,7 +60,7 @@
                         </tr>
                     </table>
                     <p>GENERAL</p>
-                    <table class="table table-striped table-hover">
+                    <table class="table  table-hover" style="font-size: 14px; text-indent: 10px">
                         <tr>
                             <td style="width: 300px">Touchscreen</td>
                             <td>${product.touchscreen}</td>
@@ -74,8 +74,8 @@
                             <td>${product.simType}</td>
                         </tr>
                     </table>
-                    <p><strong>OTHERS</strong></p>
-                    <table class="table table-striped table-hover">
+                    <p>OTHERS</p>
+                    <table class="table  table-hover" style="font-size: 14px; text-indent: 10px">
                         <tr>
                             <td style="width: 300px">Other options:</td>
                             <td>${product.otherOptions}</td>

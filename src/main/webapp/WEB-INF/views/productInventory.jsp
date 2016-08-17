@@ -46,7 +46,7 @@
                                 <td>${product.phoneType}</td>
                                 <td>${product.price}</td>
                                 <td><a class="btn btn-default"
-                                       href="<spring:url value="/productList/viewProduct/${product.productID}"/>" role="button">Info product</a></br>
+                                       href="<spring:url value="/product/productList/viewProduct/${product.productID}"/>" role="button">Info product</a></br>
                                     <a class="btn btn-warning"
                                        href="<spring:url value="/admin/editProduct/${product.productID}"/>" role="button">Edit product</a></br>
                                     <a class="btn btn-danger"

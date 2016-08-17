@@ -1,14 +1,20 @@
 package com.ecommerce.controller;
 
+import com.ecommerce.model.BillingAddress;
+import com.ecommerce.model.Customer;
 import com.ecommerce.model.Product;
+import com.ecommerce.model.ShippingAddress;
+import com.ecommerce.service.CustomerService;
 import com.ecommerce.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.annotation.SessionScope;
+
+import javax.validation.Valid;
+import java.util.List;
 
 /**
  * Created by Alx on 8/9/2016.
@@ -18,8 +24,10 @@ import org.springframework.web.context.annotation.SessionScope;
 public class HomeController {
 
 
+
+
     @Autowired
-    private ProductService productService;
+    private CustomerService customerService;
 
     @RequestMapping("/")
     public String home() {
@@ -27,33 +35,23 @@ public class HomeController {
     }
 
 
-    @RequestMapping("/productList/{type}")
-    public String getProducts(@PathVariable String type,  Model model) {
-        model.addAttribute("products", productService.listAllByType(type));
-        return "productList";
-    }
-
-
-    @RequestMapping("/productList/all")
-    public String getProducts( Model model) {
-        model.addAttribute("products", productService.listAll());
-        return "productList";
-    }
-
-
-
-
-    @RequestMapping("/productList/viewProduct/{productId}")
-    public String viewProduct(@PathVariable int productId, Model model) {
-        Product product = productService.findById(productId);
-        model.addAttribute("product", product);
-        return "viewProduct";
-    }
 
     @RequestMapping("/login")
     public String doLogin(){
-
         return "login";
     }
 
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String doLoginPost(@RequestAttribute ("username") String username, @RequestAttribute("password") String password, Model model){
+
+
+       if(customerService.getCustomerByUsername(username, password)==null){
+           model.addAttribute("errorLogin", "Invalid username or password");
+           return "login";
+      };
+
+
+       return "redirect:/product/productList/all";
+    }
 }

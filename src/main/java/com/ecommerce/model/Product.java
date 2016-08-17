@@ -1,7 +1,14 @@
 package com.ecommerce.model;
 
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.NumberFormat;
+
 import javax.persistence.*;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * Created by Alx on 8/9/2016.
@@ -13,20 +20,41 @@ public class Product {
 
     @Id
     @GeneratedValue
-    @Column(name = "id")
+    @Column(name = "productId")
     int productID;
 
+    @NotEmpty(message = "Please choose a phone type")
     String phoneType;
+
+    @NotEmpty(message = "The name field can't be empty")
     String name;
+
+
+    @NotNull(message = "The price field can't be empty")
+    @DecimalMin(value = "0.00", message = "The price must be a positive number")
     BigDecimal price;
+
+    @NotEmpty(message = "The brand field can't be empty")
     String brand;
+
     String description;
+
+    @NotEmpty(message = "Please choose an option")
     String slimSlots;
+
+    @NotEmpty(message = "Please choose an option")
     String touchscreen;
+
+    @NotEmpty(message = "The color field can't be empty")
     String color;
+
+    @NotEmpty(message = "The sim type field can't be empty")
     String simType;
     String otherOptions;
     String phoneLink;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<CartItem> cartItemList;
 
     public int getProductID() {
         return productID;
@@ -122,5 +150,13 @@ public class Product {
 
     public void setPhoneLink(String phoneLink) {
         this.phoneLink = phoneLink;
+    }
+
+    public List<CartItem> getCartItemList() {
+        return cartItemList;
+    }
+
+    public void setCartItemList(List<CartItem> cartItemList) {
+        this.cartItemList = cartItemList;
     }
 }

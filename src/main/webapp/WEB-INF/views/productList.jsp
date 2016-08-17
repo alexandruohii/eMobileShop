@@ -17,11 +17,11 @@
 
 
             <p class="lead">Check all ${type} available!</p>
-            <a class="btn btn-default" href="<spring:url value="/productList/all"/>" role="button">For all products,
+            <a class="btn btn-default" href="<spring:url value="/product/productList/all"/>" role="button">For all phones,
                 click here!</a>
-            <a class="btn btn-default" href="<spring:url value="/productList/SmartPhone"/>" role="button">For all
+            <a class="btn btn-default" href="<spring:url value="/product/productList/SmartPhone"/>" role="button">For all
                 SmartPhones, click here!</a>
-            <a class="btn btn-default" href="<spring:url value="/productList/RegularPhone"/>" role="button">For all
+            <a class="btn btn-default" href="<spring:url value="/product/productList/RegularPhone"/>" role="button">For all
                 Regular Phones, click here!</a>
         </div>
 
@@ -50,7 +50,7 @@
                                     <td>${product.phoneType}</td>
                                     <td>${product.price}</td>
                                     <td><a class="btn btn-default"
-                                           href="<spring:url value="/productList/viewProduct/${product.productID}"/>"
+                                           href="<spring:url value="/product/productList/viewProduct/${product.productID}"/>"
                                            role="button">Info</a>
                                     </td>
 

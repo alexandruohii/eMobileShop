@@ -22,23 +22,23 @@
                    method="post" commandName="product">
 
         <div class="form-group">
-            <label for="category">Category</label>
+            <label for="category">Category</label><form:errors path="phoneType" cssStyle="color: #ff0000"/>
             <label class="checkbox-inline"><form:radiobutton path="phoneType" id="category" value="SmartPhone" />SmartPhone</label>
             <label class="checkbox-inline"><form:radiobutton path="phoneType" id="category" value="RegularPhone" />RegularPhone</label>
         </div>
 
         <div class="form-group">
-            <label for="name">Name</label>
+            <label for="name">Name</label><form:errors path="name" cssStyle="color: #ff0000"/>
             <form:input path="name" id="name" class="form-Control" />
         </div>
 
         <div class="form-group">
-            <label for="price">Price</label>
+            <label for="price">Price</label><form:errors path="price" cssStyle="color: #ff0000"/>
             <form:input path="price" id="price" class="form-Control" />
         </div>
 
         <div class="form-group">
-            <label for="brand">Brand</label>
+            <label for="brand">Brand</label><form:errors path="brand" cssStyle="color: #ff0000"/>
             <form:input path="brand" id="brand" class="form-Control" />
         </div>
 
@@ -48,25 +48,25 @@
         </div>
 
         <div class="form-group">
-            <label for="slimSlots">SlimSlots</label>
+            <label for="slimSlots">SlimSlots</label><form:errors path="slimSlots" cssStyle="color: #ff0000"/>
             <label class="checkbox-inline"><form:radiobutton path="slimSlots" id="slimSlots" value="Single Sim" />Single Sim</label>
             <label class="checkbox-inline"><form:radiobutton path="slimSlots" id="slimSlots" value="Dual Sim" />Dual Sim</label>
         </div>
 
         <div class="form-group">
-            <label for="touchscreen">Touchscreen</label>
+            <label for="touchscreen">Touchscreen</label><form:errors path="touchscreen" cssStyle="color: #ff0000"/>
             <label class="checkbox-inline"><form:radiobutton path="touchscreen" id="touchscreen" value="Da" />Da</label>
             <label class="checkbox-inline"><form:radiobutton path="touchscreen" id="touchscreen" value="Nu" />Nu</label>
         </div>
 
         <div class="form-group">
-            <label for="color">Color:</label>
+            <label for="color">Color:</label><form:errors path="color" cssStyle="color: #ff0000"/>
             <form:input path="color" id="color" class="form-Control" />
         </div>
 
 
         <div class="form-group">
-            <label for="simType">SimType:</label>
+            <label for="simType">SimType:</label><form:errors path="simType" cssStyle="color: #ff0000"/>
             <label class="checkbox-inline"><form:radiobutton path="simType" id="simType" value="Full size SIM" />Full size SIM</label>
             <label class="checkbox-inline"><form:radiobutton path="simType" id="simType" value="Micro SIM" />Micro SIM</label>
             <label class="checkbox-inline"><form:radiobutton path="simType" id="simType" value="Nano SIM" />Nano SIM</label>

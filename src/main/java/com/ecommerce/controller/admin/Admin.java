@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.validation.Valid;
+
 /**
  * Created by Alx on 8/14/2016.
  */
@@ -23,8 +25,8 @@ public class Admin {
     @Autowired
     private ProductService productService;
 
-   @RequestMapping("/")
-    public String adminHome(){
+    @RequestMapping("/")
+    public String adminHome() {
         return "admin";
     }
 
@@ -36,53 +38,52 @@ public class Admin {
 
 
     @RequestMapping("/productInventory/all")
-    public String getProducts( Model model) {
+    public String getProducts(Model model) {
         model.addAttribute("products", productService.listAll());
         return "productInventory";
     }
 
 
-
     @RequestMapping("/addProduct")
-    public String addProduct(Model model){
+    public String addProduct(Model model) {
         Product product = new Product();
         model.addAttribute("product", product);
 
-    return "addProduct";
+        return "addProduct";
     }
 
     @RequestMapping(value = "/addProduct", method = RequestMethod.POST)
-    public String addProductPost( @ModelAttribute("product") Product product){
-       productService.save(product);
+    public String addProductPost(@Valid @ModelAttribute("product") Product product, BindingResult resultProduct) {
+        if (resultProduct.hasErrors()) {
+            return "addProduct";
+        }
+        productService.save(product);
 
         return "redirect:/admin/productInventory/all";
     }
 
     @RequestMapping("/editProduct/{productId}")
-    public String editProduct(@PathVariable int productId, Model model){
+    public String editProduct(@PathVariable int productId, Model model) {
         Product product = productService.findById(productId);
         model.addAttribute(product);
         return "editProduct";
     }
 
     @RequestMapping(value = "/editProduct", method = RequestMethod.POST)
-    public String editProductPost(@ModelAttribute("product") Product product, BindingResult result){
+    public String editProductPost(@ModelAttribute("product") Product product) {
         productService.save(product);
         return "redirect:/admin/productInventory/all";
     }
 
 
-
-
     @RequestMapping("/removeProduct/{productId}")
-    public String removeProduct(@PathVariable int productId){
-    Product product = productService.findById(productId);
-    productService.delete(product);
+    public String removeProduct(@PathVariable int productId) {
+        Product product = productService.findById(productId);
+        productService.delete(product);
 
         return "redirect:/admin/productInventory/all";
 
     }
-
 
 
 }

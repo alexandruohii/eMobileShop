@@ -55,9 +55,9 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                        aria-haspopup="true" aria-expanded="false">Inventory <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="<c:url value="/productList/SmartPhone"/>">Smartphones</a></li>
-                        <li><a href="<c:url value="/productList/RegularPhone"/>">Regular Phones</a></li>
-                        <li><a href="<c:url value="/productList"/>">All products</a></li>
+                        <li><a href="<c:url value="/product/productList/SmartPhone"/>">Smartphones</a></li>
+                        <li><a href="<c:url value="/product/productList/RegularPhone"/>">Regular Phones</a></li>
+                        <li><a href="<c:url value="/product/productList/all"/>">All phones</a></li>
 
 
                     </ul>
