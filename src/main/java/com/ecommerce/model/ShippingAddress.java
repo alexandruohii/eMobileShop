@@ -13,32 +13,36 @@ public class ShippingAddress {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name ="Id")
-    private int shippingId;
+    @GeneratedValue
+    @Column (name ="shippingAddressId")
+    private int shippingAddressId;
 
-    @NotEmpty(message = "The street field can't be empty")
+    //@NotEmpty(message = "The street field can't be empty")
     private String street;
 
-    @NotEmpty (message = "The streetnumber field can't be empty")
+    //@NotEmpty (message = "The streetnumber field can't be empty")
     private String streetNumber;
 
-    @NotEmpty (message = "The city field can't be empty")
+    //@NotEmpty (message = "The city field can't be empty")
     private String city;
 
-    @NotEmpty (message = "The county field can't be empty")
+    //@NotEmpty (message = "The county field can't be empty")
     private String county;
 
-    @NotEmpty (message = "The country field can't be empty")
+    //@NotEmpty (message = "The country field can't be empty")
     private String country;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="customerId")
+    private Customer customer;
 
-    public int getShippingId() {
-        return shippingId;
+
+    public int getShippingAddressId() {
+        return shippingAddressId;
     }
 
-    public void setShippingId(int shippingId) {
-        this.shippingId = shippingId;
+    public void setShippingAddressId(int shippingAddressId) {
+        this.shippingAddressId = shippingAddressId;
     }
 
     public String getStreet() {
@@ -79,5 +83,13 @@ public class ShippingAddress {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }

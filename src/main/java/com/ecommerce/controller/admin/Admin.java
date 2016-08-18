@@ -25,21 +25,21 @@ public class Admin {
     @Autowired
     private ProductService productService;
 
-    @RequestMapping("/")
+    @RequestMapping
     public String adminHome() {
         return "admin";
     }
 
     @RequestMapping("/productInventory/{type}")
     public String getProducts(@PathVariable String type, Model model) {
-        model.addAttribute("products", productService.listAllByType(type));
+        model.addAttribute("products", productService.findAllByType(type));
         return "productInventory";
     }
 
 
     @RequestMapping("/productInventory/all")
     public String getProducts(Model model) {
-        model.addAttribute("products", productService.listAll());
+        model.addAttribute("products", productService.findAll());
         return "productInventory";
     }
 
@@ -57,29 +57,29 @@ public class Admin {
         if (resultProduct.hasErrors()) {
             return "addProduct";
         }
-        productService.save(product);
+        productService.addProduct(product);
 
         return "redirect:/admin/productInventory/all";
     }
 
     @RequestMapping("/editProduct/{productId}")
     public String editProduct(@PathVariable int productId, Model model) {
-        Product product = productService.findById(productId);
+        Product product = productService.findPhoneById(productId);
         model.addAttribute(product);
         return "editProduct";
     }
 
     @RequestMapping(value = "/editProduct", method = RequestMethod.POST)
     public String editProductPost(@ModelAttribute("product") Product product) {
-        productService.save(product);
+        productService.addProduct(product);
         return "redirect:/admin/productInventory/all";
     }
 
 
     @RequestMapping("/removeProduct/{productId}")
     public String removeProduct(@PathVariable int productId) {
-        Product product = productService.findById(productId);
-        productService.delete(product);
+        Product product = productService.findPhoneById(productId);
+        productService.deleteProduct(product);
 
         return "redirect:/admin/productInventory/all";
 

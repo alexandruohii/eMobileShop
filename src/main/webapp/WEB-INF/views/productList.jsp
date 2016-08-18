@@ -16,7 +16,7 @@
         <div class="page-header">
 
 
-            <p class="lead">Check all ${type} available!</p>
+            <p class="lead">Find below our current stock!</p>
             <a class="btn btn-default" href="<spring:url value="/product/productList/all"/>" role="button">For all phones,
                 click here!</a>
             <a class="btn btn-default" href="<spring:url value="/product/productList/SmartPhone"/>" role="button">For all

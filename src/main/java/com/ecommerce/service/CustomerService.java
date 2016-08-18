@@ -20,21 +20,25 @@ public class CustomerService {
     CustomerDao customerDao;
 
     @Transactional
-    public void saveCustomer(Customer customer) {
-        customerDao.save(customer);
+    public void addCustomer(Customer customer) {
+        customerDao.addCustomer(customer);
     }
 
 
     @Transactional
-    public List<Customer> findAllCustomers(){
-        List<Customer> customers = customerDao.findAll();
+    public List<Customer> findAllCustomers() {
+        List<Customer> customers = customerDao.findAllCustomers();
         return customers;
     }
 
     @Transactional
-    public Customer getCustomerByUsername(String username, String password){
-        return customerDao.existCustomer(username,password);
+    public Customer findCustomerById(int customerId) {
+        return customerDao.findCustomerById(customerId);
+    }
 
+    @Transactional
+    public Customer findCustomerByUsername(String username) {
+        return customerDao.findCustomerByUsername(username);
     }
 
 }

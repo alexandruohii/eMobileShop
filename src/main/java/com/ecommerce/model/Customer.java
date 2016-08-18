@@ -19,8 +19,8 @@ public class Customer {
 
     @Id
     @GeneratedValue
-    @Column(name = "customerid")
-    private int idCustomer;
+    @Column(name = "customerId")
+    private int customerId;
 
     @NotEmpty (message = "The username field can't be empty")
     private String username;
@@ -39,27 +39,26 @@ public class Customer {
 
     private int phone;
 
-
-    @OneToOne(cascade = CascadeType.ALL)
     @Valid
+    @OneToOne(mappedBy = "customer")
     private BillingAddress billingAddress;
 
-    @OneToOne(cascade = CascadeType.ALL)
     @Valid
+    @OneToOne(mappedBy = "customer")
     private ShippingAddress shippingAddress;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "customer")
     private Cart cart;
 
     //private boolean isActive;
 
 
     public int getIdCustomer() {
-        return idCustomer;
+        return customerId;
     }
 
-    public void setIdCustomer(int idCustomer) {
-        this.idCustomer = idCustomer;
+    public void setIdCustomer(int customerId) {
+        this.customerId = customerId;
     }
 
     public String getUsername() {
@@ -125,6 +124,4 @@ public class Customer {
     public void setCart(Cart cart) {
         this.cart = cart;
     }
-
-
 }

@@ -14,23 +14,32 @@ public class BillingAddress {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column (name= "Id")
+    @Column (name= "billingAddressId")
     private int billingId;
 
-    @NotEmpty (message = "The street field can't be empty")
+    @Column (name= "street")
+    //@NotEmpty (message = "The street field can't be empty")
     private String street;
 
-    @NotEmpty (message = "The streetnumber field can't be empty")
+    @Column (name= "streetNumber")
+    //@NotEmpty (message = "The streetnumber field can't be empty")
     private String streetNumber;
 
-    @NotEmpty (message = "The city field can't be empty")
+    @Column (name= "city")
+    //@NotEmpty (message = "The city field can't be empty")
     private String city;
 
-    @NotEmpty (message = "The county field can't be empty")
+    @Column (name= "county")
+    //@NotEmpty (message = "The county field can't be empty")
     private String county;
 
-    @NotEmpty (message = "The country field can't be empty")
+    @Column (name= "country")
+   // @NotEmpty (message = "The country field can't be empty")
     private String country;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="customerId")
+    private Customer customer;
 
 
     public int getBillingId() {
@@ -79,5 +88,13 @@ public class BillingAddress {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }

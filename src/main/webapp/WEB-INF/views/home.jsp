@@ -73,7 +73,7 @@
 
 
         <div class="col-lg-4">
-            <a href="<spring:url value="/productList/${'SmartPhone'}"/>">
+            <a href="<spring:url value="/product/productList/${'SmartPhone'}"/>">
                 <img src="<c:url value="/resources/images/smartphones.png"/>" border="0" alt="Smartphone Image" width="300" height="225">
             </a>
 
@@ -86,7 +86,7 @@
 
 
         <div class="col-lg-4">
-            <a href="<spring:url value="/productList/${'RegularPhone'}"/>">
+            <a href="<spring:url value="/product/productList/${'RegularPhone'}"/>">
                 <img src="<c:url value="/resources/images/regularPhones.png"/>" border="0" alt="Regular Phones Image" width="300" height="225">
             </a>
 

@@ -5,9 +5,8 @@
   Time: 9:22 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="ISO-8859-1" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -55,15 +54,41 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                        aria-haspopup="true" aria-expanded="false">Inventory <span class="caret"></span></a>
                     <ul class="dropdown-menu">
+                        <c:if test="${!pageContext.request.isUserInRole('ROLE_ADMIN')}">
                         <li><a href="<c:url value="/product/productList/SmartPhone"/>">Smartphones</a></li>
                         <li><a href="<c:url value="/product/productList/RegularPhone"/>">Regular Phones</a></li>
                         <li><a href="<c:url value="/product/productList/all"/>">All phones</a></li>
+                        </c:if>
 
+                        <c:if test="${pageContext.request.isUserInRole('ROLE_ADMIN')}">
+                            <li><a href="<c:url value="/admin/productInventory/all"/>">-ADMIN-Product Inventory</a></li>
+                        </c:if>
 
                     </ul>
                 </li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav pull-right">
+                <c:if test="${pageContext.request.userPrincipal.name != null}">
+                    <li><a>Welcome: ${pageContext.request.userPrincipal.name}</a></li>
+                    <li><a href="<c:url value="/j_spring_security_logout" />">Logout</a></li>
+
+                    <c:if test="${pageContext.request.isUserInRole('ROLE_USER')}">
+                        <li><a href="<c:url value="/customer/cart/add/" />">Cart</a></li>
+                    </c:if>
+
+                    <c:if test="${pageContext.request.isUserInRole('ROLE_ADMIN')}">
+                        <li><a href="<c:url value="/admin" />">Admin</a></li>
+                    </c:if>
+
+                </c:if>
+
+                <c:if test="${pageContext.request.userPrincipal.name == null}">
+                    <li><a href="<c:url value="/login" />">Login</a></li>
+                    <li><a href="<c:url value="/register/" />">Register</a></li>
+                </c:if>
             </ul>
         </div>
     </div><!-- /.container -->

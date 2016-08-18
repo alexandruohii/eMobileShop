@@ -36,7 +36,6 @@ public class RegisterController {
         Customer customer = new Customer();
         BillingAddress billingAddress = new BillingAddress();
         ShippingAddress shippingAddress = new ShippingAddress();
-
         customer.setBillingAddress(billingAddress);
         customer.setShippingAddress(shippingAddress);
 
@@ -61,11 +60,7 @@ public class RegisterController {
             }
         }
 
-        Cart cart = new Cart();
-        customer.setCart(cart);
-        customerService.saveCustomer(customer);
-
-
+        customerService.addCustomer(customer);
 
         return "registerSuccess";
     }

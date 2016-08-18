@@ -20,21 +20,21 @@ public class ProductController {
 
     @RequestMapping("/productList/{type}")
     public String getProducts(@PathVariable String type, Model model) {
-        model.addAttribute("products", productService.listAllByType(type));
+        model.addAttribute("products", productService.findAllByType(type));
         return "productList";
     }
 
 
     @RequestMapping("/productList/all")
     public String getProducts(Model model) {
-        model.addAttribute("products", productService.listAll());
+        model.addAttribute("products", productService.findAll());
         return "productList";
     }
 
 
     @RequestMapping("/productList/viewProduct/{productId}")
     public String viewProduct(@PathVariable int productId, Model model) {
-        Product product = productService.findById(productId);
+        Product product = productService.findPhoneById(productId);
         model.addAttribute("product", product);
         return "viewProduct";
     }

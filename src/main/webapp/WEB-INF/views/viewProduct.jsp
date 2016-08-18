@@ -30,14 +30,23 @@
                         <p><strong>Price:</strong> ${product.price} Lei</p>
                         <br>
                         <br>
-                        <br>
-                        <a class="btn btn-default"
-                           href="<spring:url value="/product/productList/all"/>" role="button"><< Back</a>
-                        <a class="btn btn-primary""
-                           href="<spring:url value="/cart/add/${product.productID}"/>" role="button">Add To Cart</a>
-                        <a class="btn btn-warning"
-                           href="<spring:url value="/admin/removeProduct/${product.productID}"/>" role="button">View Cart >></a>
 
+                        <p>${messAdd}</p>
+                        <c:if test="${pageContext.request.isUserInRole('ROLE_ADMIN')}">
+                            <a class="btn btn-default"
+                               href="<spring:url value="/admin/productInventory/all"/>" role="button"><< Back</a>
+                        </c:if>
+                        <c:if test="${!pageContext.request.isUserInRole('ROLE_ADMIN')}">
+                            <a class="btn btn-default"
+                               href="<spring:url value="/product/productList/all"/>" role="button"><< Back</a>
+                        </c:if>
+                        <c:if test="${!pageContext.request.isUserInRole('ROLE_ADMIN')}">
+
+                        <a class="btn btn-primary""
+                           href="<spring:url value="/customer/cart/add/${product.productID}"/>" role="button">Add To Cart</a>
+                        <a class="btn btn-warning"
+                           href="<spring:url value="/customer/cart"/>" role="button">View Cart >></a>
+                        </c:if>
                     </div>
                 </div>
             </div>

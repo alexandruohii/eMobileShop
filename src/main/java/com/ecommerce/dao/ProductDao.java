@@ -2,7 +2,11 @@ package com.ecommerce.dao;
 
 import com.ecommerce.model.Product;
 import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -10,30 +14,57 @@ import java.util.List;
  * Created by Alx on 8/10/2016.
  */
 @Repository
-public class ProductDao extends AbstractDao<Product, Integer> {
+@Transactional
+public class ProductDao {
 
-    private Query query;
 
-    @SuppressWarnings("unchecked")
+    @Autowired
+    private SessionFactory sessionFactory;
+
+
     public List<Product> findAll() {
-        Query query = getSession().createQuery("from Product");
-        List<Product> products = query.list();
-        return products;
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("from Product");
+        List<Product> productList = query.list();
+        session.flush();
+
+        return productList;
     }
 
     @SuppressWarnings("unchecked")
     public List<Product> findAllByType(String type) {
-        Query query = getSession().createQuery("from Product where phoneType=?");
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("from Product where phoneType=?");
         query.setParameter(0, type);
         List<Product> products = query.list();
         return products;
     }
 
 
-    @SuppressWarnings("unchecked")
-    public Product findById(int id) {
-        Product product =(Product) getSession().get(Product.class, id);
+    public Product findPhoneById (int id){
+        Session session = sessionFactory.getCurrentSession();
+        Product product = (Product) session.get(Product.class, id);
+        session.flush();
+
         return product;
+    }
+
+    public void addProduct (Product product){
+        Session session = sessionFactory.getCurrentSession();
+        session.saveOrUpdate(product);
+        session.flush();
+    }
+
+    public void editProduct (Product product){
+        Session session = sessionFactory.getCurrentSession();
+        session.saveOrUpdate(product);
+        session.flush();
+    }
+
+    public void deleteProduct (Product product){
+        Session session = sessionFactory.getCurrentSession();
+        session.delete(product);
+        session.flush();
     }
 
 }

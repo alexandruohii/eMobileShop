@@ -5,40 +5,30 @@
   Time: 4:31 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
 <%@include file="/WEB-INF/views/fragments/header.jsp" %>
 
-<div class="container-wrapper">
 
-    <div class="container">
-
-
-        <div class="container">
-
-            <form class="form-signin" action="${pageContext.request.contextPath}/login" method="post">
-                <h2 class="form-signin-heading">Please sign in</h2>
+<div class="container">
 
 
-                <div class="form-group">
-                    <label for="username">User: </label>
-                    <input type="text" id="username" name="username" class="form-control"/>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" class="form-control"/>
-                </div>
-                <p><span style="color: #ff0000">${errorLogin}</span></p>
-                <input type="submit" value="submit" class="btn btn-default">
+    <form class="form-signin" action="<c:url value="/j_spring_security_check" />" method="post">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <c:if test="${not empty logoutMessage}">
+            <div class="msg">${msg}</div>
+        </c:if>
 
-                <a href="<c:url value="/" />" class="btn btn-default">Cancel</a>
+        <c:if test="${not empty error}">
+            <div class="error" style="color: #ff0000;">${error}</div>
+        </c:if>
 
+        <label for="username" class="sr-only">User: </label>
+        <input type="text" id="username" name="username" class="form-control" placeholder="Username"/>
+        <label for="password" class="sr-only">Password:</label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Password"/>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>
 
-            </form>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-        </div> <!-- /container -->
-
-
-        <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-
-        <%@include file="/WEB-INF/views/fragments/footer.jsp" %>
+    <%@include file="/WEB-INF/views/fragments/footer.jsp" %>
