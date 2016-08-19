@@ -13,21 +13,25 @@ import java.util.List;
  * Created by Alx on 8/17/2016.
  */
 @Service
-public class CartItemService{
+public class CartItemService {
 
     @Autowired
     private CartItemDao cartItemDao;
 
     @Transactional
-    public void addCartItem(CartItem cartItem){cartItemDao.save(cartItem);}
+    public void addCartItem(CartItem cartItem) {
+        cartItemDao.save(cartItem);
+    }
 
     @Transactional
-    public void removeCartItem(CartItem cartItem){cartItemDao.delete(cartItem);}
+    public void removeCartItem(CartItem cartItem) {
+        cartItemDao.delete(cartItem);
+    }
 
     @Transactional
-    public void removeAllCartItems(Cart cart){
+    public void removeAllCartItems(Cart cart) {
         List<CartItem> cartItems = cart.getCartItems();
-        for (CartItem item : cartItems){
+        for (CartItem item : cartItems) {
             removeCartItem(item);
         }
     }

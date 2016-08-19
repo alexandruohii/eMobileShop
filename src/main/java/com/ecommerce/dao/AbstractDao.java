@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by Alx on 8/20/2016.
  */
-public class AbstractDao <T, ID extends Serializable> {
+public class AbstractDao <T, ID extends Serializable> implements Dao<T, ID> {
 
 
     @Autowired
@@ -49,11 +49,5 @@ public class AbstractDao <T, ID extends Serializable> {
         this.getSession().delete(entity);
     }
 
-    public void flush() {
-        this.getSession().flush();
-    }
 
-    public void clear() {
-        this.getSession().clear();
-    }
 }

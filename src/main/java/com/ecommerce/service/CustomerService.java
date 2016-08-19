@@ -1,7 +1,6 @@
 package com.ecommerce.service;
 
 import com.ecommerce.dao.*;
-import com.ecommerce.dao.impl.AuthoritiesDaoImpl;
 import com.ecommerce.model.Authorities;
 import com.ecommerce.model.Cart;
 import com.ecommerce.model.Customer;
@@ -28,7 +27,7 @@ public class CustomerService {
     UsersDao usersDao;
 
     @Autowired
-    AuthoritiesDaoImpl authoritiesDao;
+    AuthoritiesDao authoritiesDao;
 
     @Autowired
     BillingAddressDao billingAddressDao;

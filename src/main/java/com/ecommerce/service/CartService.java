@@ -3,7 +3,6 @@ package com.ecommerce.service;
 import com.ecommerce.dao.CartDao;
 import com.ecommerce.model.Cart;
 import com.ecommerce.model.CartItem;
-import com.ecommerce.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,11 +21,11 @@ public class CartService {
     CartDao cartDao;
 
     @Transactional
-    public BigDecimal getTotalPriceCart(Cart cart){
+    public BigDecimal getTotalPriceCart(Cart cart) {
         List<CartItem> cartItems = cart.getCartItems();
         BigDecimal totalPrice = new BigDecimal(0);
-        for(CartItem cartItem: cartItems){
-            totalPrice= totalPrice.add(cartItem.getTotalPrice());
+        for (CartItem cartItem : cartItems) {
+            totalPrice = totalPrice.add(cartItem.getTotalPrice());
 
         }
         return totalPrice;

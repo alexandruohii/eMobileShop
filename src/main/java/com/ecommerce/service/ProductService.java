@@ -20,7 +20,9 @@ public class ProductService {
 
 
     @Transactional
-    public List<Product> findAll() {return productDao.findAll();}
+    public List<Product> findAll() {
+        return productDao.findAll();
+    }
 
     @Transactional
     public List<Product> findAllByType(String type) {
@@ -28,7 +30,9 @@ public class ProductService {
     }
 
     @Transactional
-    public Product findById(int id) {return productDao.findById(id);}
+    public Product findById(int id) {
+        return productDao.findById(id);
+    }
 
     @Transactional
     public void add(Product product) {
