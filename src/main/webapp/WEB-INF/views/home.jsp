@@ -20,29 +20,35 @@
     </ol>
     <div class="carousel-inner" role="listbox">
         <div class="item active">
-            <img class="first-slide home-image" src="<c:url value="/resources/images/back1.jpg" />" alt="First slide">
+            <img class="first-slide home-image" src="<c:url value="/resources/images/websiteImages/samsungG7edge.jpg" />" alt="First slide">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Welcome to Le's Music Store</h1>
-                    <p>Here you can browse and buy Instruments. Records and music related Accessories. Order How for Your Amazing New Kit!</p>
+                    <p align="right">
+                        <a class="btn btn-lg btn-success"
+                           href="<spring:url value="/product/productList/viewProduct/17"/>" role="button">Click here for details</a></p>
+
+
                 </div>
             </div>
         </div>
         <div class="item">
-            <img class="second-slide home-image" src="<c:url value="/resources/images/back2.jpg" />" alt="Second slide">
+            <img class="second-slide home-image" src="<c:url value="/resources/images/websiteImages/iphone6S.jpg" />" alt="Second slide">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Facts You Should know About Music</h1>
-                    <p>Music brings jey, to all of our hearts. It's one of those, emotional arts.</p>
+
+                    <p align="right" style="padding-right: 120px">
+                        <a class="btn btn-lg btn-success"
+                           href="<spring:url value="/product/productList/viewProduct/17"/>" role="button">Click here for details</a></p>
+
+
                 </div>
             </div>
         </div>
         <div class="item">
-            <img class="third-slide home-image " src="<c:url value="/resources/images/back3.jpg" />" alt="Third slide">
+            <img class="third-slide home-image " src="<c:url value="/resources/images/websiteImages/transportgratuit.jpg" />" alt="Third slide">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>It's A Jazz Affair</h1>
-                    <p>Through ups and downs, Somehow I manage to survive in life.</p>
+
                 </div>
             </div>
         </div>
@@ -74,7 +80,7 @@
 
         <div class="col-lg-4">
             <a href="<spring:url value="/product/productList/${'SmartPhone'}"/>">
-                <img src="<c:url value="/resources/images/smartphones.png"/>" border="0" alt="Smartphone Image" width="300" height="225">
+                <img src="<c:url value="/resources/images/websiteImages/smartphones.png"/>" border="0" alt="Smartphone Image" width="300" height="225">
             </a>
 
             <h2 style="text-align: center">Smartphones:</h2>
@@ -87,7 +93,7 @@
 
         <div class="col-lg-4">
             <a href="<spring:url value="/product/productList/${'RegularPhone'}"/>">
-                <img src="<c:url value="/resources/images/regularPhones.png"/>" border="0" alt="Regular Phones Image" width="300" height="225">
+                <img src="<c:url value="/resources/images/websiteImages/regularPhones.png"/>" border="0" alt="Regular Phones Image" width="300" height="225">
             </a>
 
             <h2 style="text-align: center">Regular Phones:</h2>

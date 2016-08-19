@@ -57,29 +57,29 @@ public class Admin {
         if (resultProduct.hasErrors()) {
             return "addProduct";
         }
-        productService.addProduct(product);
+        productService.add(product);
 
         return "redirect:/admin/productInventory/all";
     }
 
     @RequestMapping("/editProduct/{productId}")
     public String editProduct(@PathVariable int productId, Model model) {
-        Product product = productService.findPhoneById(productId);
+        Product product = productService.findById(productId);
         model.addAttribute(product);
         return "editProduct";
     }
 
     @RequestMapping(value = "/editProduct", method = RequestMethod.POST)
     public String editProductPost(@ModelAttribute("product") Product product) {
-        productService.addProduct(product);
+        productService.add(product);
         return "redirect:/admin/productInventory/all";
     }
 
 
     @RequestMapping("/removeProduct/{productId}")
     public String removeProduct(@PathVariable int productId) {
-        Product product = productService.findPhoneById(productId);
-        productService.deleteProduct(product);
+        Product product = productService.findById(productId);
+        productService.delete(product);
 
         return "redirect:/admin/productInventory/all";
 

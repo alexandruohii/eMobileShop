@@ -20,35 +20,23 @@ public class ProductService {
 
 
     @Transactional
-    public List<Product> findAll() {
-
-        return productDao.findAll();
-    }
+    public List<Product> findAll() {return productDao.findAll();}
 
     @Transactional
     public List<Product> findAllByType(String type) {
         return productDao.findAllByType(type);
     }
 
+    @Transactional
+    public Product findById(int id) {return productDao.findById(id);}
 
     @Transactional
-    public Product findPhoneById(int id) {
-        Product product = productDao.findPhoneById(id);
-        return product;
+    public void add(Product product) {
+        productDao.save(product);
     }
 
     @Transactional
-    public void addProduct(Product product) {
-        productDao.addProduct(product);
-    }
-
-    @Transactional
-    public void editProduct(Product product) {
-        productDao.editProduct(product);
-    }
-
-    @Transactional
-    public void deleteProduct(Product product) {
-        productDao.deleteProduct(product);
+    public void delete(Product product) {
+        productDao.delete(product);
     }
 }

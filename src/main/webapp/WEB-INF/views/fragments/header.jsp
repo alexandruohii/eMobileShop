@@ -76,7 +76,8 @@
                     <li><a href="<c:url value="/j_spring_security_logout" />">Logout</a></li>
 
                     <c:if test="${pageContext.request.isUserInRole('ROLE_USER')}">
-                        <li><a href="<c:url value="/customer/cart/add/" />">Cart</a></li>
+
+                        <li><a href="<c:url value="/customer/cart" />"><span class="glyphicon glyphicon-shopping-cart aria-hidden="true"></span>&nbspCart</a></li>
                     </c:if>
 
                     <c:if test="${pageContext.request.isUserInRole('ROLE_ADMIN')}">
@@ -93,6 +94,6 @@
         </div>
     </div><!-- /.container -->
 </nav><!-- /.navbar -->
-<td bgcolor="#FFFFFF" style="line-height:10px;" colspan=3>&nbsp;</td>
+
 
 

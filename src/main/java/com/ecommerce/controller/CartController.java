@@ -9,14 +9,20 @@ import com.ecommerce.service.CartService;
 import com.ecommerce.service.CustomerService;
 import com.ecommerce.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Scope;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.bind.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionAttributeStore;
+import org.springframework.web.context.annotation.SessionScope;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -41,21 +47,30 @@ public class CartController {
     @Autowired
     CartItemService cartItemService;
 
-    @RequestMapping
-    public String getCart(@AuthenticationPrincipal User activeUser, Model model) {
-        Customer customer = customerService.findCustomerByUsername(activeUser.getUsername());
+
+    @ModelAttribute("customer")
+    public Customer getCustomer (@AuthenticationPrincipal User activeUser){
+        return customerService.findCustomerByUsername(activeUser.getUsername());
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public String getCart(@ModelAttribute ("customer") Customer customer, Model model) {
         List<CartItem> cartItems = customer.getCart().getCartItems();
+        model.addAttribute("customer", customer);
+        model.addAttribute("totalPriceCart",cartService.getTotalPriceCart(customer.getCart()));
         model.addAttribute("cartItems", cartItems);
+
 
         return "cart";
     }
 
 
     @RequestMapping("/add/{productId}")
-    public String addItem(@PathVariable(value = "productId") int productId, @AuthenticationPrincipal User activeUser, Model model) {
-        Customer customer = customerService.findCustomerByUsername(activeUser.getUsername());
+    public String addItem(@PathVariable(value = "productId") int productId, @ModelAttribute ("customer") Customer customer,  Model model) {
+
         Cart cart = customer.getCart();
-        Product product = productService.findPhoneById(productId);
+        model.addAttribute("cart", cart);
+        Product product = productService.findById(productId);
         List<CartItem> cartItems = cart.getCartItems();
         for (int i = 0; i < cartItems.size(); i++) {
             if (product.getProductID() == cartItems.get(i).getProduct().getProductID()) {
@@ -78,8 +93,14 @@ public class CartController {
 
     @RequestMapping("/remove/{cartItemId}")
     public String removeItem(@PathVariable(value = "cartItemId") int cartId) {
-        CartItem cartItem = cartItemService.getCartItemById(cartId);
+        CartItem cartItem = cartItemService.findCartItemById(cartId);
         cartItemService.removeCartItem(cartItem);
+        return "redirect:/customer/cart";
+    }
+
+    @RequestMapping("/clearCart")
+    public String clearCart(@ModelAttribute(value = "customer") Customer customer){
+        cartItemService.removeAllCartItems(customer.getCart());
         return "redirect:/customer/cart";
     }
 

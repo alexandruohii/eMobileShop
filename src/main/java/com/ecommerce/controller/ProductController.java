@@ -34,7 +34,7 @@ public class ProductController {
 
     @RequestMapping("/productList/viewProduct/{productId}")
     public String viewProduct(@PathVariable int productId, Model model) {
-        Product product = productService.findPhoneById(productId);
+        Product product = productService.findById(productId);
         model.addAttribute("product", product);
         return "viewProduct";
     }

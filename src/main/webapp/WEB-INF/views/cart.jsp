@@ -13,53 +13,63 @@
 
     <div class="container">
 
-
-        <div class="container">
-            <div class="jumbotron">
-                <div class="row">
+        <div class="page-header">
 
 
-                    <div class="col-md-12">
-                        <table class="table table-stripped ">
-                            <thead>
-                            <th>Product Name</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                            <th></th>
-                            </thead>
-                            <c:forEach items="${cartItems}" var="cartItem">
-                                <tr>
-                                    <td width="150px"><a
-                                            href="<spring:url value="/product/productList/viewProduct/${cartItem.product.productID}"  /> "
-                                            target="_blank"><img
-                                            src="<c:url value="/resources/images/${cartItem.product.productID}.jpg" />"
-                                            alt="image" style="width:90%"/></a></td>
-                                    <td width="400px">${cartItem.product.name}</td>
-                                    <td>${cartItem.quantity}</td>
-                                    <td>${cartItem.totalPrice}</td>
-                                    <td>
-                                        <a class="btn btn-danger"
-                                           href="<spring:url value="/customer/cart/remove/${cartItem.cartItemId}"/>"
-                                           role="button">Remove product</a>
-                                    </td>
-                                </tr>
-                            </c:forEach>
-                        </table>
-                        <table>
+            <h3>Here is your current cart!</h3>
+        </div>
+        <div class="jumbotron">
+            <div class="row">
+
+
+                <div class="col-md-12">
+                    <table class="table table-stripped  ">
+                        <thead>
+                        <th></th>
+
+                        <th><h4>Here you can see the cart items!</h4></th>
+
+                        </thead>
+                        <c:forEach items="${cartItems}" var="cartItem">
                             <tr>
-                                <td width="400px"></td>
-                                <td width="400px">Total price:</td>
-
-
+                                <td class="col-lg-2"><a
+                                        href="<spring:url value="/product/productList/viewProduct/${cartItem.product.productID}"  /> "
+                                        target="_blank"><img
+                                        src="<c:url value="/resources/images/${cartItem.product.productID}.jpg" />"
+                                        alt="image" style="width:90%"/></a></td>
+                                <td class="col-lg-4">${cartItem.product.name}</td>
+                                <td class="col-lg-2" align="right">${cartItem.quantity} Pcs</td>
+                                <td class="col-lg-2" align="right">${cartItem.totalPrice} Lei</td>
+                                <td class="col-lg-2" align="right">
+                                    <a class="btn btn-danger"
+                                       href="<spring:url value="/customer/cart/remove/${cartItem.cartItemId}"/>"
+                                       role="button">Remove&nbsp</a>
+                                </td>
                             </tr>
+                        </c:forEach>
+                    </table>
+                    <table>
+                        <tr>
+                            <td width="40px"></td>
+                            <td width="660px"><a class="btn btn-danger"
+                                                 href="<spring:url value="/customer/cart/clearCart"/>"
+                                                 role="button">Clear Cart</a></td>
+                            </td>
+                            <td class="col-lg-2" align="right"><strong>Total price: </strong><br>${totalPriceCart} Lei
+                            </td>
+                            <td class="col-lg-2" align="right"><a class="btn btn-primary"
+                                                                  href="<spring:url value="#"/>"
+                                                                  role="button">Checkout</a></td>
 
-                        </table>
+                        </tr>
+
+                    </table>
 
 
-                    </div>
                 </div>
-
             </div>
 
+        </div>
 
-            <%@include file="/WEB-INF/views/fragments/footer.jsp" %>
+
+        <%@include file="/WEB-INF/views/fragments/footer.jsp" %>
