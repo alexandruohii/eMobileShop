@@ -34,4 +34,14 @@ public class HomeController {
     }
 
 
+    @RequestMapping("/aboutUs")
+    public String aboutUs() {
+        return "aboutUs";
+    }
+
+
+    @RequestMapping("/contactUs")
+    public String contactUs() {
+        return "contactUs";
+    }
 }

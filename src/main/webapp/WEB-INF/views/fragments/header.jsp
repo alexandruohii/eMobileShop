@@ -70,8 +70,8 @@
 
                     </ul>
                 </li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="<c:url value="/aboutUs"/>">About</a></li>
+                <li><a href="<c:url value="/contactUs"/>">Contact</a></li>
             </ul>
 
             <ul class="nav navbar-nav pull-right">
