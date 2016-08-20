@@ -29,7 +29,7 @@ public class HomeController {
     }
 
     @RequestMapping("/accessDenied")
-    public String about() {
+    public String accessDenied() {
         return "accessDenied";
     }
 
