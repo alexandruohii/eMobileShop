@@ -18,7 +18,7 @@ public class OrderController {
 
 
     @RequestMapping
-    public String getClientInfo(@ModelAttribute(name = "customer") Customer customer, Model model){
+    public String getClientInfo(@ModelAttribute Customer customer, Model model){
      // model.addAttribute("customers",customer);
         System.out.println(customer.getEmail());
         return "testSessionAttributes";

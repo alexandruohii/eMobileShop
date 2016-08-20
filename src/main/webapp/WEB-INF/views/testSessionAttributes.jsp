@@ -16,7 +16,7 @@
         <div class="page-header">
 
 
-            <h3> ${.name}</h3>
+            <h3> </h3>
         </div>
 
 

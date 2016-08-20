@@ -47,7 +47,8 @@ public class CartController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public String getCart(@ModelAttribute("customer") Customer customer, Model model) {
+    public String getCart(@AuthenticationPrincipal User activeUser , Model model) {
+        Customer customer = customerService.findCustomerByUsername(activeUser.getUsername());
         List<CartItem> cartItems = customer.getCart().getCartItems();
         model.addAttribute("totalPriceCart", cartService.getTotalPriceCart(customer.getCart()));
         model.addAttribute("cartItems", cartItems);
@@ -58,8 +59,8 @@ public class CartController {
 
 
     @RequestMapping("/add/{productId}")
-    public String addItem(@PathVariable(value = "productId") int productId, @ModelAttribute("customer") Customer customer, Model model) {
-
+    public String addItem(@PathVariable(value = "productId") int productId, @AuthenticationPrincipal User activeUser , Model model) {
+        Customer customer = customerService.findCustomerByUsername(activeUser.getUsername());
         Cart cart = customer.getCart();
         model.addAttribute("cart", cart);
         Product product = productService.findById(productId);
@@ -91,7 +92,8 @@ public class CartController {
     }
 
     @RequestMapping("/clearCart")
-    public String clearCart(@ModelAttribute(value = "customer") Customer customer) {
+    public String clearCart( @AuthenticationPrincipal User activeUser ) {
+        Customer customer = customerService.findCustomerByUsername(activeUser.getUsername());
         cartItemService.removeAllCartItems(customer.getCart());
         return "redirect:/customer/cart";
     }
