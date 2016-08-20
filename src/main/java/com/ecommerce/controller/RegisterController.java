@@ -1,9 +1,7 @@
 package com.ecommerce.controller;
 
 import com.ecommerce.model.BillingAddress;
-import com.ecommerce.model.Cart;
 import com.ecommerce.model.Customer;
-import com.ecommerce.model.ShippingAddress;
 import com.ecommerce.service.CartService;
 import com.ecommerce.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,7 +59,6 @@ public class RegisterController {
 
         return "registerSuccess";
     }
-
 
 
 }

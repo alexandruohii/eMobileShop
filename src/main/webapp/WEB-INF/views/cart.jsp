@@ -60,7 +60,7 @@
                             <td class="col-lg-2" align="right"><strong>Total price: </strong><br>${totalPriceCart} Lei
                             </td>
                             <td class="col-lg-2" align="right"><a class="btn btn-primary"
-                                                                  href="<spring:url value="#"/>"
+                                                                  href="<spring:url value="/customer/order"/>"
                                                                   role="button">Checkout</a></td>
 
                         </tr>
