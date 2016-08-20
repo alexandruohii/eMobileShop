@@ -1,10 +1,15 @@
 package com.ecommerce.controller;
 
+import com.ecommerce.model.BillingAddress;
 import com.ecommerce.model.Customer;
+import com.ecommerce.model.ShippingAddress;
+import com.ecommerce.service.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 /**
@@ -13,15 +18,28 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
 @RequestMapping("/customer/order")
-@SessionAttributes ("customer")
+@SessionAttributes("customer")
 public class OrderController {
 
+    @Autowired
+    CustomerService customerService;
 
     @RequestMapping
-    public String getClientInfo(@ModelAttribute Customer customer, Model model){
-     // model.addAttribute("customers",customer);
+    public String getClientInfo(@ModelAttribute Customer customer, Model model) {
+
+        BillingAddress billingAddress = customer.getBillingAddress();
+        ShippingAddress shippingAddress = customer.getShippingAddress();
+       model.addAttribute("customer", customer);
         System.out.println(customer.getEmail());
-        return "testSessionAttributes";
+        return "editCustomer";
+
+
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public String getClientInfoPost(@ModelAttribute Customer customer) {
+       customerService.editCustomer(customer);
+        return "test";
 
 
     }

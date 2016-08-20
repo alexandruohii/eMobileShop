@@ -6,7 +6,6 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -39,7 +38,8 @@ public class Customer {
     @Pattern(regexp=".+@.+\\..+", message = "")
     private String email;
 
-    private int phone;
+    @Length(min = 0, max = 45, message = "Please provide a real phone number!")
+    private String phone;
 
     @Valid
     @OneToOne(mappedBy = "customer")
@@ -95,11 +95,11 @@ public class Customer {
         this.email = email;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

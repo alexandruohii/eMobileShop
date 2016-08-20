@@ -31,7 +31,7 @@
                         <br>
                         <br>
 
-                        <p>${messAdd}</p>
+
                         <c:if test="${pageContext.request.isUserInRole('ROLE_ADMIN')}">
                             <a class="btn btn-default"
                                href="<spring:url value="/admin/productInventory/all"/>" role="button"><< Back</a>

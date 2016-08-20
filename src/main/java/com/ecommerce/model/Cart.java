@@ -2,7 +2,6 @@ package com.ecommerce.model;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 /**

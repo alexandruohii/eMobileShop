@@ -70,6 +70,14 @@ public class CustomerService {
         cartDao.save(newCart);
     }
 
+    @Transactional
+    public void editCustomer(Customer customer){
+        customer.getBillingAddress().setCustomer(customer);
+        customer.getShippingAddress().setCustomer(customer);
+        customerDao.save(customer);
+        billingAddressDao.save(customer.getBillingAddress());
+        shippingAddressDao.save(customer.getShippingAddress());
+    }
 
     @Transactional
     public List<Customer> findAllCustomers() {

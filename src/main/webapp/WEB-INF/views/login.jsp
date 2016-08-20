@@ -15,7 +15,7 @@
     <form class="form-signin" action="<c:url value="/j_spring_security_check" />" method="post">
         <h2 class="form-signin-heading">Please sign in</h2>
         <c:if test="${not empty logoutMessage}">
-            <div class="msg">${msg}</div>
+            <div class="msg">${logoutMessage}</div>
         </c:if>
 
         <c:if test="${not empty error}">
