@@ -17,7 +17,7 @@
     <meta name="author" content="">
     <link rel="icon" href="<c:url value="/resources/images/websiteImages/phone.ico"/>">
 
-    <title>Carousel Template for Bootstrap</title>
+    <title>Welcome to eMobileShop</title>
 
 
 

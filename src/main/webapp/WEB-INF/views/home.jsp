@@ -38,7 +38,7 @@
 
                     <p align="right" style="padding-right: 120px">
                         <a class="btn btn-lg btn-success"
-                           href="<spring:url value="/product/productList/viewProduct/17"/>" role="button">Click here for details</a></p>
+                           href="<spring:url value="/product/productList/viewProduct/20"/>" role="button">Click here for details</a></p>
 
 
                 </div>
