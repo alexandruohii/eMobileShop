@@ -35,10 +35,7 @@ public class RegisterController {
     public String doRegister(Model model) {
         Customer customer = new Customer();
         BillingAddress billingAddress = new BillingAddress();
-        ShippingAddress shippingAddress = new ShippingAddress();
         customer.setBillingAddress(billingAddress);
-        customer.setShippingAddress(shippingAddress);
-
         model.addAttribute("customer", customer);
         return "register";
     }
@@ -64,4 +61,7 @@ public class RegisterController {
 
         return "registerSuccess";
     }
+
+
+
 }

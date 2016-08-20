@@ -43,7 +43,7 @@
                                 <td class="col-lg-2" align="right">
                                     <a class="btn btn-danger"
                                        href="<spring:url value="/customer/cart/remove/${cartItem.cartItemId}"/>"
-                                       role="button">Remove&nbsp</a>
+                                       role="button"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbspRemove&nbsp</a>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -53,7 +53,9 @@
                             <td width="40px"></td>
                             <td width="660px"><a class="btn btn-danger"
                                                  href="<spring:url value="/customer/cart/clearCart"/>"
-                                                 role="button">Clear Cart</a></td>
+                                                 role="button"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbspEmpty Cart</a></td>
+                            </td>
+                            <td class="col-lg-2" align="right"><strong>Total price: </strong><br>${totalPriceCart} Lei
                             </td>
                             <td class="col-lg-2" align="right"><strong>Total price: </strong><br>${totalPriceCart} Lei
                             </td>

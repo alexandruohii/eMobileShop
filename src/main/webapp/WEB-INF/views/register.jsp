@@ -84,33 +84,7 @@
         </div>
 
 
-        <h3>Shipping Address</h3>
 
-        <div class="form-group">
-            <label for="shippingStreet">Street</label><form:errors path="shippingAddress.street" cssStyle="color: #ff0000"/>
-            <form:input path="shippingAddress.street" id="shippingStreet" class="form-Control"/>
-        </div>
-
-        <div class="form-group">
-            <label for="shippingStreetNumber">Street Number</label><form:errors path="shippingAddress.streetNumber" cssStyle="color: #ff0000"/>
-            <form:input path="shippingAddress.streetNumber" id="shippingStreetNumber" class="form-Control"/>
-        </div>
-
-        <div class="form-group">
-            <label for="shippingCity">City</label><form:errors path="shippingAddress.city" cssStyle="color: #ff0000"/>
-            <form:input path="shippingAddress.city" id="shippingCity" class="form-Control"/>
-        </div>
-
-
-        <div class="form-group">
-            <label for="shippingCounty">County</label><form:errors path="shippingAddress.county" cssStyle="color: #ff0000"/>
-            <form:input path="shippingAddress.county" id="shippingCounty" class="form-Control"/>
-        </div>
-
-        <div class="form-group">
-            <label for="shippingCountry">Country</label><form:errors path="shippingAddress.country" cssStyle="color: #ff0000"/>
-            <form:input path="shippingAddress.country" id="shippingCountry" class="form-Control"/>
-        </div>
 
         <br/><br/>
 

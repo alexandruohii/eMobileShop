@@ -41,7 +41,10 @@
                                href="<spring:url value="/product/productList/all"/>" role="button"><< Back</a>
                         </c:if>
                         <c:if test="${!pageContext.request.isUserInRole('ROLE_ADMIN')}">
-                            <a class="btn btn-primary"onclick="alert('Product Added to Cart');" "
+                            <a class="btn btn-primary"
+                            <c:if test="${pageContext.request.isUserInRole('ROLE_USER')}">
+                            onclick="alert('${product.name} added to Cart!');"
+                            </c:if> "
                             href="<spring:url value="/customer/cart/add/${product.productID}"/>" role="button">Add To Cart</a>
                             <a class="btn btn-warning"
                                href="<spring:url value="/customer/cart"/>" role="button">View Cart >></a>

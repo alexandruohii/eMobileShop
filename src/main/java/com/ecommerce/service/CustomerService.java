@@ -1,10 +1,7 @@
 package com.ecommerce.service;
 
 import com.ecommerce.dao.*;
-import com.ecommerce.model.Authorities;
-import com.ecommerce.model.Cart;
-import com.ecommerce.model.Customer;
-import com.ecommerce.model.Users;
+import com.ecommerce.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -41,7 +38,16 @@ public class CustomerService {
     @Transactional
     public void addCustomer(Customer customer) {
         customer.getBillingAddress().setCustomer(customer);
+
+        ShippingAddress shippingAddress = new ShippingAddress();
+        shippingAddress.setStreet(customer.getBillingAddress().getStreet());
+        shippingAddress.setStreetNumber(customer.getBillingAddress().getStreetNumber());
+        shippingAddress.setCity(customer.getBillingAddress().getCity());
+        shippingAddress.setCounty(customer.getBillingAddress().getCounty());
+        shippingAddress.setCountry(customer.getBillingAddress().getCountry());
+        customer.setShippingAddress(shippingAddress);
         customer.getShippingAddress().setCustomer(customer);
+
         billingAddressDao.save(customer.getBillingAddress());
         shippingAddressDao.save(customer.getShippingAddress());
 

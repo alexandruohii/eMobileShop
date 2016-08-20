@@ -17,19 +17,19 @@ public class ShippingAddress {
     @Column (name ="shippingAddressId")
     private int shippingAddressId;
 
-    //@NotEmpty(message = "The street field can't be empty")
+    @NotEmpty(message = "The street field can't be empty")
     private String street;
 
-    //@NotEmpty (message = "The streetnumber field can't be empty")
+    @NotEmpty (message = "The streetnumber field can't be empty")
     private String streetNumber;
 
-    //@NotEmpty (message = "The city field can't be empty")
+    @NotEmpty (message = "The city field can't be empty")
     private String city;
 
-    //@NotEmpty (message = "The county field can't be empty")
+    @NotEmpty (message = "The county field can't be empty")
     private String county;
 
-    //@NotEmpty (message = "The country field can't be empty")
+    @NotEmpty (message = "The country field can't be empty")
     private String country;
 
     @OneToOne(cascade = CascadeType.ALL)

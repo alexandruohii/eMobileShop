@@ -18,23 +18,23 @@ public class BillingAddress {
     private int billingId;
 
     @Column (name= "street")
-    //@NotEmpty (message = "The street field can't be empty")
+    @NotEmpty (message = "The street field can't be empty")
     private String street;
 
     @Column (name= "streetNumber")
-    //@NotEmpty (message = "The streetnumber field can't be empty")
+    @NotEmpty (message = "The streetnumber field can't be empty")
     private String streetNumber;
 
     @Column (name= "city")
-    //@NotEmpty (message = "The city field can't be empty")
+    @NotEmpty (message = "The city field can't be empty")
     private String city;
 
     @Column (name= "county")
-    //@NotEmpty (message = "The county field can't be empty")
+    @NotEmpty (message = "The county field can't be empty")
     private String county;
 
     @Column (name= "country")
-   // @NotEmpty (message = "The country field can't be empty")
+    @NotEmpty (message = "The country field can't be empty")
     private String country;
 
     @OneToOne(cascade = CascadeType.ALL)

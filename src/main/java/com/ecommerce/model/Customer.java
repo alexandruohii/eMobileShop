@@ -23,18 +23,20 @@ public class Customer {
     private int customerId;
 
     @NotEmpty (message = "The username field can't be empty")
+    @Length (min = 4, max = 15, message = "The username must be between 4 an15 characters")
     private String username;
 
 
     @Size (min = 6 , max = 12 ,message = "The password must be between 6 and 12 characters long")
     private String password;
 
-    //@NotEmpty (message = "The name field can't be empty")
+    @NotEmpty (message = "The name field can't be empty")
+    @Length(min = 3, max = 45, message = "Please provide a real name!")
     private String name;
 
-   /* @NotEmpty (message = "The email field can't be empty")
+    @NotEmpty (message = "The email field can't be empty")
     @Email (message = "Please provide a valid email address")
-    @Pattern(regexp=".+@.+\\..+", message = "")*/
+    @Pattern(regexp=".+@.+\\..+", message = "")
     private String email;
 
     private int phone;
