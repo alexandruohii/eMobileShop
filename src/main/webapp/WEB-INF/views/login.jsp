@@ -11,7 +11,6 @@
 
 <div class="container">
 
-
     <form class="form-signin" action="<c:url value="/j_spring_security_check" />" method="post">
         <h2 class="form-signin-heading">Please sign in</h2>
         <c:if test="${not empty logoutMessage}">
@@ -28,7 +27,6 @@
         <input type="password" id="password" name="password" class="form-control" placeholder="Password"/>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </form>
-
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
     <%@include file="/WEB-INF/views/fragments/footer.jsp" %>

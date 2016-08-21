@@ -9,24 +9,23 @@ import java.util.List;
  */
 
 @Entity
-@Table (name = "Cart")
+@Table(name = "Cart")
 public class Cart {
-
 
 
     @Id
     @GeneratedValue
-    @Column (name = "cartId")
+    @Column(name = "cartId")
     private int cartId;
 
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<CartItem> cartItems ;
+    private List<CartItem> cartItems;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "customerId")
     private Customer customer;
 
-    @Column (name = "cartPrice")
+    @Column(name = "cartPrice")
     private BigDecimal cartPrice;
 
 

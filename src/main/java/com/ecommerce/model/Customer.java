@@ -38,7 +38,7 @@ public class Customer {
     @Pattern(regexp=".+@.+\\..+", message = "")
     private String email;
 
-    @Length(min = 0, max = 45, message = "Please provide a real phone number!")
+    @Length(min = 5, max = 45, message = "Please provide a real phone number!")
     private String phone;
 
     @Valid

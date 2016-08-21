@@ -12,26 +12,10 @@
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header">
-
             <h1>You have been registered successfully! Now you can login!</h1>
-
             <br><br>
-
-
-                <p style="text-align: center"><a href="<spring:url value="/login" />" class="btn btn-default">SignIn</a></p>
-
-
-
-
+            <p style="text-align: center"><a href="<spring:url value="/login" />" class="btn btn-default">SignIn</a></p>
         </div>
-
-
-
-
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-
-
-
 
 <%@include file="/WEB-INF/views/fragments/footer.jsp" %>

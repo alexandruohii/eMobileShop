@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by Alx on 8/20/2016.
  */
-public class AbstractDao <T, ID extends Serializable> implements Dao<T, ID> {
+public class AbstractDao<T, ID extends Serializable> implements Dao<T, ID> {
 
 
     @Autowired

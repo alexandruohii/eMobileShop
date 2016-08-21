@@ -54,9 +54,7 @@ public class RegisterController {
                 return "register";
             }
         }
-
         customerService.addCustomer(customer);
-
         return "registerSuccess";
     }
 

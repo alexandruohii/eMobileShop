@@ -24,13 +24,11 @@ public class ProductController {
         return "productList";
     }
 
-
     @RequestMapping("/productList/all")
     public String getProducts(Model model) {
         model.addAttribute("products", productService.findAll());
         return "productList";
     }
-
 
     @RequestMapping("/productList/viewProduct/{productId}")
     public String viewProduct(@PathVariable int productId, Model model) {

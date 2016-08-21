@@ -14,27 +14,29 @@
         <div class="page-header">
             <h1>Please check the bellow information!</h1>
 
-
-
-
-
         </div>
-
         <form:form action="${pageContext.request.contextPath}/customer/order"
                    method="post" commandName="customer">
 
-            <form:hidden path="idCustomer" value="${customer.idCustomer}" />
+            <form:hidden path="idCustomer" value="${customer.idCustomer}"/>
+
+        <div class="form-group">
+            <label for="phone">Phone</label><form:errors path="phone" cssStyle="color: #ff0000"/>
+            <form:input path="phone" id="phone" class="form-Control"/>
+        </div>
 
 
         <h3>Billing Address</h3>
-            <form:hidden path="billingAddress.billingId" value="${customer.billingAddress.billingId}" />
+            <form:hidden path="billingAddress.billingId" value="${customer.billingAddress.billingId}"/>
         <div class="form-group">
-            <label for="billingStreet">Street</label><form:errors path="billingAddress.street" cssStyle="color: #ff0000"/>
+            <label for="billingStreet">Street</label><form:errors path="billingAddress.street"
+                                                                  cssStyle="color: #ff0000"/>
             <form:input path="billingAddress.street" id="billingStreet" class="form-Control"/>
         </div>
 
         <div class="form-group">
-            <label for="billingStreetNumber">Street Number</label><form:errors path="billingAddress.streetNumber" cssStyle="color: #ff0000"/>
+            <label for="billingStreetNumber">Street Number</label><form:errors path="billingAddress.streetNumber"
+                                                                               cssStyle="color: #ff0000"/>
             <form:input path="billingAddress.streetNumber" id="billingStreetNumber" class="form-Control"/>
         </div>
 
@@ -45,44 +47,45 @@
 
 
         <div class="form-group">
-            <label for="billingCounty">County</label><form:errors path="billingAddress.county" cssStyle="color: #ff0000"/>
+            <label for="billingCounty">County</label><form:errors path="billingAddress.county"
+                                                                  cssStyle="color: #ff0000"/>
             <form:input path="billingAddress.county" id="billingCounty" class="form-Control"/>
         </div>
 
         <div class="form-group">
-            <label for="billingCountry">Country</label><form:errors path="billingAddress.country" cssStyle="color: #ff0000"/>
+            <label for="billingCountry">Country</label><form:errors path="billingAddress.country"
+                                                                    cssStyle="color: #ff0000"/>
             <form:input path="billingAddress.country" id="billingCountry" class="form-Control"/>
         </div>
 
-
         <h3>Shipping Address</h3>
-            <form:hidden path="shippingAddress.shippingAddressId" value="${customer.shippingAddress.shippingAddressId}" />
+            <form:hidden path="shippingAddress.shippingAddressId"
+                         value="${customer.shippingAddress.shippingAddressId}"/>
         <div class="form-group">
-            <label for="street">Street</label>
+            <label for="street">Street</label><form:errors path="shippingAddress.street" cssStyle="color: #ff0000"/>
             <form:input path="shippingAddress.street" id="street" class="form-Control"/>
         </div>
 
         <div class="form-group">
-            <label for="streetNumber">Street Number</label>
+            <label for="streetNumber">Street Number</label><form:errors path="shippingAddress.streetNumber"
+                                                                        cssStyle="color: #ff0000"/>
             <form:input path="shippingAddress.streetNumber" id="streetNumber" class="form-Control"/>
         </div>
 
         <div class="form-group">
-            <label for="city">City</label>
+            <label for="city">City</label><form:errors path="shippingAddress.city" cssStyle="color: #ff0000"/>
             <form:input path="shippingAddress.city" id="city" class="form-Control"/>
         </div>
 
-
         <div class="form-group">
-            <label for="county">County</label>
+            <label for="county">County</label><form:errors path="shippingAddress.county" cssStyle="color: #ff0000"/>
             <form:input path="shippingAddress.county" id="county" class="form-Control"/>
         </div>
 
         <div class="form-group">
-            <label for="country">Country</label>
+            <label for="country">Country</label><form:errors path="shippingAddress.country" cssStyle="color: #ff0000"/>
             <form:input path="shippingAddress.country" id="country" class="form-Control"/>
         </div>
-
 
         <br/><br/>
 

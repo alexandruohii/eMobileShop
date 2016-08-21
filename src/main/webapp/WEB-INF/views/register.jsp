@@ -14,7 +14,6 @@
         <div class="page-header">
             <h1>Register</h1>
 
-
             <p class="lead">Fill the below information :<br>
             <ul>(The fields marked with * are mandatory)</ul>
             </p>
@@ -23,7 +22,6 @@
 
         <form:form action="${pageContext.request.contextPath}/register/"
                    method="post" commandName="customer">
-
 
         <div class="form-group">
             <label for="name">Full Name</label>
@@ -41,8 +39,6 @@
             <form:input path="password" id="password" class="form-Control"/>
         </div>
 
-
-
         <div class="form-group">
             <label for="email">E-mail</label><form:errors path="email" cssStyle="color: #ff0000"/>
             <span style="color: #ff0000">${msjEmail}</span>
@@ -54,16 +50,17 @@
             <form:input path="phone" id="phone" class="form-Control"/>
         </div>
 
-
         <h3>Billing Address</h3>
 
         <div class="form-group">
-            <label for="billingStreet">Street</label><form:errors path="billingAddress.street" cssStyle="color: #ff0000"/>
+            <label for="billingStreet">Street</label><form:errors path="billingAddress.street"
+                                                                  cssStyle="color: #ff0000"/>
             <form:input path="billingAddress.street" id="billingStreet" class="form-Control"/>
         </div>
 
         <div class="form-group">
-            <label for="billingStreetNumber">Street Number</label><form:errors path="billingAddress.streetNumber" cssStyle="color: #ff0000"/>
+            <label for="billingStreetNumber">Street Number</label><form:errors path="billingAddress.streetNumber"
+                                                                               cssStyle="color: #ff0000"/>
             <form:input path="billingAddress.streetNumber" id="billingStreetNumber" class="form-Control"/>
         </div>
 
@@ -72,19 +69,17 @@
             <form:input path="billingAddress.city" id="billingCity" class="form-Control"/>
         </div>
 
-
         <div class="form-group">
-            <label for="billingCounty">County</label><form:errors path="billingAddress.county" cssStyle="color: #ff0000"/>
+            <label for="billingCounty">County</label><form:errors path="billingAddress.county"
+                                                                  cssStyle="color: #ff0000"/>
             <form:input path="billingAddress.county" id="billingCounty" class="form-Control"/>
         </div>
 
         <div class="form-group">
-            <label for="billingCountry">Country</label><form:errors path="billingAddress.country" cssStyle="color: #ff0000"/>
+            <label for="billingCountry">Country</label><form:errors path="billingAddress.country"
+                                                                    cssStyle="color: #ff0000"/>
             <form:input path="billingAddress.country" id="billingCountry" class="form-Control"/>
         </div>
-
-
-
 
         <br/><br/>
 

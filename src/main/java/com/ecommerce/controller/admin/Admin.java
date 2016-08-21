@@ -48,7 +48,6 @@ public class Admin {
     public String addProduct(Model model) {
         Product product = new Product();
         model.addAttribute("product", product);
-
         return "addProduct";
     }
 
@@ -58,7 +57,6 @@ public class Admin {
             return "addProduct";
         }
         productService.add(product);
-
         return "redirect:/admin/productInventory/all";
     }
 
@@ -75,12 +73,10 @@ public class Admin {
         return "redirect:/admin/productInventory/all";
     }
 
-
     @RequestMapping("/removeProduct/{productId}")
     public String removeProduct(@PathVariable int productId) {
         Product product = productService.findById(productId);
         productService.delete(product);
-
         return "redirect:/admin/productInventory/all";
 
     }

@@ -33,12 +33,10 @@ public class HomeController {
         return "accessDenied";
     }
 
-
     @RequestMapping("/aboutUs")
     public String aboutUs() {
         return "aboutUs";
     }
-
 
     @RequestMapping("/contactUs")
     public String contactUs() {

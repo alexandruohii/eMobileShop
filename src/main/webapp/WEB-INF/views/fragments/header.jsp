@@ -20,8 +20,6 @@
     <title>Welcome to eMobileShop</title>
 
 
-
-
     <!-- Bootstrap core CSS -->
     <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
 
@@ -38,17 +36,14 @@
 <nav class="navbar navbar-fixed-top navbar-inverse">
     <div class="container">
         <div class="navbar-header">
-
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-
             </button>
-
-            <a class="navbar-brand"  href="<c:url value="/"/>">eMobileShop</a>
-
+            <a class="navbar-brand" href="<c:url value="/"/>">eMobileShop</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -59,37 +54,32 @@
                        aria-haspopup="true" aria-expanded="false">Inventory <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <c:if test="${!pageContext.request.isUserInRole('ROLE_ADMIN')}">
-                        <li><a href="<c:url value="/product/productList/SmartPhone"/>">Smartphones</a></li>
-                        <li><a href="<c:url value="/product/productList/RegularPhone"/>">Regular Phones</a></li>
-                        <li><a href="<c:url value="/product/productList/all"/>">All phones</a></li>
+                            <li><a href="<c:url value="/product/productList/SmartPhone"/>">Smartphones</a></li>
+                            <li><a href="<c:url value="/product/productList/RegularPhone"/>">Regular Phones</a></li>
+                            <li><a href="<c:url value="/product/productList/all"/>">All phones</a></li>
                         </c:if>
-
                         <c:if test="${pageContext.request.isUserInRole('ROLE_ADMIN')}">
                             <li><a href="<c:url value="/admin/productInventory/all"/>">-ADMIN-Product Inventory</a></li>
                         </c:if>
-
                     </ul>
                 </li>
                 <li><a href="<c:url value="/aboutUs"/>">About</a></li>
                 <li><a href="<c:url value="/contactUs"/>">Contact</a></li>
             </ul>
-
             <ul class="nav navbar-nav pull-right">
                 <c:if test="${pageContext.request.userPrincipal.name != null}">
                     <li><a>Welcome: ${pageContext.request.userPrincipal.name}</a></li>
                     <li><a href="<c:url value="/j_spring_security_logout" />">Logout</a></li>
 
                     <c:if test="${pageContext.request.isUserInRole('ROLE_USER')}">
-
-                        <li><a href="<c:url value="/customer/cart" />"><span class="glyphicon glyphicon-shopping-cart aria-hidden="true"></span>&nbspCart</a></li>
+                        <li><a href="<c:url value="/customer/cart" />"><span
+                                class="glyphicon glyphicon-shopping-cart aria-hidden=" true"></span>&nbspCart</a></li>
                     </c:if>
 
                     <c:if test="${pageContext.request.isUserInRole('ROLE_ADMIN')}">
                         <li><a href="<c:url value="/admin" />">Admin</a></li>
                     </c:if>
-
                 </c:if>
-
                 <c:if test="${pageContext.request.userPrincipal.name == null}">
                     <li><a href="<c:url value="/login" />">Login</a></li>
                     <li><a href="<c:url value="/register/" />">Register</a></li>
