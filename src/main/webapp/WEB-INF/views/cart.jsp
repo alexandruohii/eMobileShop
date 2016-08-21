@@ -29,12 +29,19 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <c:if test="${cartItems.size()<1}">
+
+
+                        <c:if test="${cartItems.size()<1}">
+                            <tr>
                                 <td class="col-md-5"> No products in cart!</td>
-                            </c:if>
-                            <c:if test="${cartItems.size()>=1}">
-                                <c:forEach items="${cartItems}" var="cartItem">
+                            </tr>
+                        </c:if>
+
+                        <c:forEach items="${cartItems}" var="cartItem">
+                            <tr>
+
+                                <c:if test="${cartItems.size()>=1}">
+
                                     <td class="col-md-1"><a
                                             href="<spring:url value="/product/productList/viewProduct/${cartItem.product.productID}"  /> "
                                             target="_blank"><img
@@ -49,9 +56,10 @@
                                                                                       role="button"><span
                                             class="glyphicon glyphicon-trash" aria-hidden="true">
                                                                                  </span>&nbspRemove</a></td>
-                                </c:forEach>
-                            </c:if>
-                        </tr>
+
+                                </c:if>
+                            </tr>
+                        </c:forEach>
                         <tr>
                             <td>
                                 <c:if test="${cartItems.size()<1}">
