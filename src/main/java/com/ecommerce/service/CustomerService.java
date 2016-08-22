@@ -71,7 +71,7 @@ public class CustomerService {
     }
 
     @Transactional
-    public void editCustomer(Customer customer){
+    public void editCustomer(Customer customer) {
         customer.getBillingAddress().setCustomer(customer);
         customer.getShippingAddress().setCustomer(customer);
         customerDao.save(customer);
@@ -81,8 +81,7 @@ public class CustomerService {
 
     @Transactional
     public List<Customer> findAllCustomers() {
-        List<Customer> customers = customerDao.findAll();
-        return customers;
+        return customerDao.findAll();
     }
 
     @Transactional

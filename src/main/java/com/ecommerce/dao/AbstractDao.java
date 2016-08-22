@@ -40,9 +40,8 @@ public class AbstractDao<T, ID extends Serializable> implements Dao<T, ID> {
         return (List<T>) crit.list();
     }
 
-    public T save(T entity) {
+    public void save(T entity) {
         this.getSession().saveOrUpdate(entity);
-        return entity;
     }
 
     public void delete(T entity) {

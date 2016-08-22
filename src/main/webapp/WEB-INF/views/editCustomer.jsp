@@ -18,7 +18,7 @@
         <form:form action="${pageContext.request.contextPath}/customer/order"
                    method="post" commandName="customer">
 
-            <form:hidden path="idCustomer" value="${customer.idCustomer}"/>
+
 
         <div class="form-group">
             <label for="phone">Phone</label><form:errors path="phone" cssStyle="color: #ff0000"/>

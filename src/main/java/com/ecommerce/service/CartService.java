@@ -28,6 +28,14 @@ public class CartService {
             totalPrice = totalPrice.add(cartItem.getTotalPrice());
 
         }
+       cart.setCartPrice(totalPrice);
+        cartDao.save(cart);
         return totalPrice;
+    }
+
+    @Transactional
+    public void setCartPriceToZero(Cart cart){
+        cart.setCartPrice(new BigDecimal(0));
+        cartDao.save(cart);
     }
 }

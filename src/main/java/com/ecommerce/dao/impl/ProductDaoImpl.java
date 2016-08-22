@@ -18,8 +18,7 @@ public class ProductDaoImpl extends AbstractDao<Product, Integer> implements Pro
     public List<Product> findAllByType(String type) {
         Query query = getSession().createQuery("from Product where phoneType=?");
         query.setParameter(0, type);
-        List<Product> products = query.list();
-        return products;
+        return query.list();
     }
 
 }

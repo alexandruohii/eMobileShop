@@ -51,8 +51,11 @@ public class Product {
     String otherOptions;
     String phoneLink;
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<CartItem> cartItemList;
+
+    /*@OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private List<OrderItem> orderItemList;*/
 
     public int getProductID() {
         return productID;
@@ -157,4 +160,12 @@ public class Product {
     public void setCartItemList(List<CartItem> cartItemList) {
         this.cartItemList = cartItemList;
     }
+/*
+    public List<OrderItem> getOrderItemList() {
+        return orderItemList;
+    }
+
+    public void setOrderItemList(List<OrderItem> orderItemList) {
+        this.orderItemList = orderItemList;
+    }*/
 }

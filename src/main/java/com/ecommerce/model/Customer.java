@@ -14,6 +14,7 @@ import javax.validation.constraints.Size;
  */
 
 @Entity
+@Table (name = "customer")
 public class Customer {
 
     @Id
@@ -52,14 +53,14 @@ public class Customer {
     @OneToOne(mappedBy = "customer")
     private Cart cart;
 
-    //private boolean isActive;
 
 
-    public int getIdCustomer() {
+
+    public int getCustomerId() {
         return customerId;
     }
 
-    public void setIdCustomer(int customerId) {
+    public void setCustomerId(int customerId) {
         this.customerId = customerId;
     }
 
@@ -126,4 +127,6 @@ public class Customer {
     public void setCart(Cart cart) {
         this.cart = cart;
     }
+
+
 }

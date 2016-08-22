@@ -8,13 +8,12 @@ import java.math.BigDecimal;
  */
 
 @Entity
+@Table(name = "cartitem")
 public class CartItem {
-
 
     @Id
     @GeneratedValue
     private int cartItemId;
-
 
     @ManyToOne
     @JoinColumn(name = "cartId")
