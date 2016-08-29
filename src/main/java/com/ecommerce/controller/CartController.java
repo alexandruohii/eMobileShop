@@ -71,7 +71,7 @@ public class CartController {
                 cartItem.setQuantity(cartItem.getQuantity() + 1);
                 cartItem.setTotalPrice(product.getPrice().multiply(BigDecimal.valueOf(cartItem.getQuantity())));
                 cartItemService.addCartItem(cartItem);
-                return "redirect:/product/productList/viewProduct/{productId}";
+                return "redirect:/customer/cart";
             }
         }
 
@@ -81,7 +81,7 @@ public class CartController {
         cartItem.setTotalPrice(product.getPrice().multiply(BigDecimal.valueOf(cartItem.getQuantity())));
         cartItem.setCart(cart);
         cartItemService.addCartItem(cartItem);
-        return "redirect:/product/productList/viewProduct/{productId}";
+        return "redirect:/customer/cart";
     }
 
     @RequestMapping("/remove/{cartItemId}")
